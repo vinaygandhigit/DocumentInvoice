@@ -1,0 +1,310 @@
+{
+  "invoices": [
+    {
+      "invoice_no": "3479",
+      "customer_name": "Acme Corporation",
+      "customer_email": "billing@acmecorp.com",
+      "customer_phone": "+1-555-0101",
+      "invoice_date": "2024-11-15",
+      "due_date": "2024-12-15",
+      "status": "paid",
+      "amount": 15000.00,
+      "currency": "USD",
+      "payment_date": "2024-12-10",
+      "items": [
+        {
+          "description": "Web Development Services",
+          "quantity": 100,
+          "unit_price": 120.00,
+          "amount": 12000.00
+        },
+        {
+          "description": "Cloud Hosting (Annual)",
+          "quantity": 1,
+          "unit_price": 3000.00,
+          "amount": 3000.00
+        }
+      ],
+      "subtotal": 15000.00,
+      "tax": 0.00,
+      "total": 15000.00,
+      "notes": "Thank you for your business!"
+    },
+    {
+      "invoice_no": "3480",
+      "customer_name": "TechStart Inc",
+      "customer_email": "accounts@techstart.io",
+      "customer_phone": "+1-555-0102",
+      "invoice_date": "2024-11-20",
+      "due_date": "2024-12-20",
+      "status": "pending",
+      "amount": 8500.00,
+      "currency": "USD",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "Mobile App Development",
+          "quantity": 50,
+          "unit_price": 150.00,
+          "amount": 7500.00
+        },
+        {
+          "description": "UI/UX Design",
+          "quantity": 10,
+          "unit_price": 100.00,
+          "amount": 1000.00
+        }
+      ],
+      "subtotal": 8500.00,
+      "tax": 0.00,
+      "total": 8500.00,
+      "notes": "Payment due within 30 days"
+    },
+    {
+      "invoice_no": "3481",
+      "customer_name": "Global Solutions Ltd",
+      "customer_email": "finance@globalsolutions.com",
+      "customer_phone": "+44-20-7946-0958",
+      "invoice_date": "2024-10-15",
+      "due_date": "2024-11-15",
+      "status": "overdue",
+      "amount": 22000.00,
+      "currency": "GBP",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "Enterprise Software License",
+          "quantity": 1,
+          "unit_price": 20000.00,
+          "amount": 20000.00
+        },
+        {
+          "description": "Installation & Training",
+          "quantity": 1,
+          "unit_price": 2000.00,
+          "amount": 2000.00
+        }
+      ],
+      "subtotal": 22000.00,
+      "tax": 0.00,
+      "total": 22000.00,
+      "notes": "URGENT: Payment is 22 days overdue. Please remit immediately."
+    },
+    {
+      "invoice_no": "3482",
+      "customer_name": "StartupHub Ventures",
+      "customer_email": "billing@startuphub.co",
+      "customer_phone": "+1-555-0103",
+      "invoice_date": "2024-12-01",
+      "due_date": "2025-01-01",
+      "status": "pending",
+      "amount": 5000.00,
+      "currency": "USD",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "Consulting Services - December",
+          "quantity": 40,
+          "unit_price": 125.00,
+          "amount": 5000.00
+        }
+      ],
+      "subtotal": 5000.00,
+      "tax": 0.00,
+      "total": 5000.00,
+      "notes": "Monthly retainer for December 2024"
+    },
+    {
+      "invoice_no": "3483",
+      "customer_name": "Innovate Digital Agency",
+      "customer_email": "accounts@innovatedigital.com",
+      "customer_phone": "+1-555-0104",
+      "invoice_date": "2024-11-25",
+      "due_date": "2024-12-25",
+      "status": "paid",
+      "amount": 12500.00,
+      "currency": "USD",
+      "payment_date": "2024-12-20",
+      "items": [
+        {
+          "description": "SEO Optimization Services",
+          "quantity": 1,
+          "unit_price": 5000.00,
+          "amount": 5000.00
+        },
+        {
+          "description": "Content Marketing Package",
+          "quantity": 1,
+          "unit_price": 4500.00,
+          "amount": 4500.00
+        },
+        {
+          "description": "Social Media Management",
+          "quantity": 1,
+          "unit_price": 3000.00,
+          "amount": 3000.00
+        }
+      ],
+      "subtotal": 12500.00,
+      "tax": 0.00,
+      "total": 12500.00,
+      "notes": "Paid via wire transfer"
+    },
+    {
+      "invoice_no": "3484",
+      "customer_name": "Quantum Analytics Corp",
+      "customer_email": "ap@quantumanalytics.com",
+      "customer_phone": "+1-555-0105",
+      "invoice_date": "2024-11-10",
+      "due_date": "2024-12-10",
+      "status": "pending",
+      "amount": 18000.00,
+      "currency": "USD",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "Data Analytics Platform - Q4",
+          "quantity": 1,
+          "unit_price": 15000.00,
+          "amount": 15000.00
+        },
+        {
+          "description": "Support & Maintenance",
+          "quantity": 1,
+          "unit_price": 3000.00,
+          "amount": 3000.00
+        }
+      ],
+      "subtotal": 18000.00,
+      "tax": 0.00,
+      "total": 18000.00,
+      "notes": "Quarterly subscription fee"
+    },
+    {
+      "invoice_no": "3485",
+      "customer_name": "BlueSky Enterprises",
+      "customer_email": "billing@bluesky-ent.com",
+      "customer_phone": "+1-555-0106",
+      "invoice_date": "2024-09-01",
+      "due_date": "2024-10-01",
+      "status": "overdue",
+      "amount": 7500.00,
+      "currency": "USD",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "IT Infrastructure Audit",
+          "quantity": 1,
+          "unit_price": 5000.00,
+          "amount": 5000.00
+        },
+        {
+          "description": "Security Assessment Report",
+          "quantity": 1,
+          "unit_price": 2500.00,
+          "amount": 2500.00
+        }
+      ],
+      "subtotal": 7500.00,
+      "tax": 0.00,
+      "total": 7500.00,
+      "notes": "OVERDUE: 67 days past due. Legal action may be taken."
+    },
+    {
+      "invoice_no": "3486",
+      "customer_name": "FreshMart Retail Chain",
+      "customer_email": "accounts@freshmart.com",
+      "customer_phone": "+1-555-0107",
+      "invoice_date": "2024-12-05",
+      "due_date": "2025-01-05",
+      "status": "pending",
+      "amount": 9800.00,
+      "currency": "USD",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "POS System Integration",
+          "quantity": 5,
+          "unit_price": 1500.00,
+          "amount": 7500.00
+        },
+        {
+          "description": "Staff Training Sessions",
+          "quantity": 1,
+          "unit_price": 2300.00,
+          "amount": 2300.00
+        }
+      ],
+      "subtotal": 9800.00,
+      "tax": 0.00,
+      "total": 9800.00,
+      "notes": "Net 30 payment terms"
+    },
+    {
+      "invoice_no": "3487",
+      "customer_name": "MediCare Solutions",
+      "customer_email": "finance@medicare-sol.com",
+      "customer_phone": "+1-555-0108",
+      "invoice_date": "2024-11-18",
+      "due_date": "2024-12-18",
+      "status": "paid",
+      "amount": 25000.00,
+      "currency": "USD",
+      "payment_date": "2024-12-15",
+      "items": [
+        {
+          "description": "Healthcare Management Software",
+          "quantity": 1,
+          "unit_price": 20000.00,
+          "amount": 20000.00
+        },
+        {
+          "description": "HIPAA Compliance Module",
+          "quantity": 1,
+          "unit_price": 5000.00,
+          "amount": 5000.00
+        }
+      ],
+      "subtotal": 25000.00,
+      "tax": 0.00,
+      "total": 25000.00,
+      "notes": "Payment received - thank you!"
+    },
+    {
+      "invoice_no": "3488",
+      "customer_name": "EcoGreen Energy Co",
+      "customer_email": "accounts@ecogreen.energy",
+      "customer_phone": "+1-555-0109",
+      "invoice_date": "2024-11-30",
+      "due_date": "2024-12-30",
+      "status": "pending",
+      "amount": 14200.00,
+      "currency": "USD",
+      "payment_date": null,
+      "items": [
+        {
+          "description": "Solar Panel Monitoring System",
+          "quantity": 1,
+          "unit_price": 10000.00,
+          "amount": 10000.00
+        },
+        {
+          "description": "IoT Sensors Installation",
+          "quantity": 20,
+          "unit_price": 150.00,
+          "amount": 3000.00
+        },
+        {
+          "description": "Annual Maintenance Plan",
+          "quantity": 1,
+          "unit_price": 1200.00,
+          "amount": 1200.00
+        }
+      ],
+      "subtotal": 14200.00,
+      "tax": 0.00,
+      "total": 14200.00,
+      "notes": "Early payment discount: 2% if paid within 10 days"
+    }
+  ]
+}
