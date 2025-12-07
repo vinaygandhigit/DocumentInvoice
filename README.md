@@ -109,19 +109,23 @@ print(response.content)
 ```
 You: "Show me invoice 3479"
 Agent: [Displays invoice details]
+```
 
 <kbd>![Alt text](invoicedetails.jpg)<kbd>
 
+```
 You: "What's its status?"
 Agent: [Remembers 3479, checks status]
+```
 
 <kbd>![Alt text](invoicestatus.jpg)<kbd>
 
+```
 You: "Download it"
 Agent: [Downloads PDF for invoice 3479]
+```
 
 <kbd>![Alt text](invoicedownload.jpg)<kbd>
-```
 
 ## 🏗️ Architecture
 
