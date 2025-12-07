@@ -137,17 +137,17 @@ Agent: [Downloads PDF for invoice 3479]
                      │
 ┌────────────────────┴────────────────────────────────┐
 │              Phidata Agent Framework                │
-│  ┌──────────────┐  ┌─────────────┐  ┌───────────┐ │
-│  │ Ollama LLM   │  │  SQLite     │  │  Tools    │ │
-│  │ (Local)      │  │  Storage    │  │ Functions │ │
-│  └──────────────┘  └─────────────┘  └───────────┘ │
+│  ┌──────────────┐  ┌─────────────┐  ┌───────────┐   │
+│  │ Ollama LLM   │  │  Postgres   │  │  Tools    │   │
+│  │ (Local)      │  │  Storage    │  │ Functions │   │
+│  └──────────────┘  └─────────────┘  └───────────┘   │
 └────────────────────┬────────────────────────────────┘
                      │
 ┌────────────────────┴────────────────────────────────┐
 │              Your Invoice API                       │
-│  • GET /invoices/{id}         (Details)            │
-│  • GET /invoices/{id}/status  (Status)             │
-│  • GET /invoices/{id}/pdf     (Download)           │
+│  • GET /invoices/{id}         (Details)             │
+│  • GET /invoices/{id}/status  (Status)              │
+│  • GET /invoices/{id}/pdf     (Download)            │
 └─────────────────────────────────────────────────────┘
 ```
 
