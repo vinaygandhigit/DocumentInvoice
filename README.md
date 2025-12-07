@@ -12,7 +12,7 @@ An intelligent invoice management assistant powered by local LLM models (Ollama)
 - 🧠 **Local LLM** - Runs completely offline using Ollama (Llama 3.1, Mistral, etc.)
 - 💰 **Zero API Costs** - No OpenAI charges, unlimited queries
 - 🎨 **Beautiful Web UI** - Modern Streamlit interface with real-time chat
-- 💾 **Conversation Memory** - SQLite-based persistent storage
+- 💾 **Conversation Memory** - Postgres-based persistent storage
 - 🔒 **Data Privacy** - All data stays on your machine
 - 🛠️ **Three Core Functions**:
   - Get invoice details
@@ -23,20 +23,9 @@ An intelligent invoice management assistant powered by local LLM models (Ollama)
 
 ## 📸 Screenshots
 
-### Web Interface
-```
-┌─────────────────────────────────────────────────────────┐
-│  📄 Invoice AI Assistant                                │
-│  Your intelligent invoice management companion          │
-├─────────────────────────────────────────────────────────┤
-│  You: Give me details for invoice 3479                  │
-│                                                          │
-│  🔧 Tool: get_invoice_details                           │
-│  📊 Result: Successfully retrieved...                    │
-│                                                          │
-│  Assistant: I've retrieved the details for invoice...   │
-└─────────────────────────────────────────────────────────┘
-```
+### Home Page
+
+<kbd>![Alt text](homepage.jpg)<kbd>
 
 ## 🚀 Quick Start
 
@@ -49,17 +38,20 @@ An intelligent invoice management assistant powered by local LLM models (Ollama)
 ### Installation
 
 1. **Clone the repository**
+
 ```bash
-git clone https://github.com/yourusername/ai-invoice-agent.git
-cd ai-invoice-agent
+git clone https://github.com/vinaygandhigit/DocumentInvoice.git
+cd DocumentInvoice
 ```
 
 2. **Install dependencies**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. **Install and start Ollama**
+
 ```bash
 # Install Ollama (macOS/Linux)
 curl -fsSL https://ollama.ai/install.sh | sh
@@ -74,6 +66,7 @@ ollama pull llama3.1:8b
 ```
 
 4. **Configure environment**
+
 ```bash
 cp .env.example .env
 # Edit .env with your settings
@@ -81,54 +74,11 @@ cp .env.example .env
 
 5. **Run the application**
 
-**Option A: Streamlit Web UI (Recommended)**
+**Streamlit Web UI (Recommended)**
+
 ```bash
 streamlit run streamlit_app.py
 ```
-Open http://localhost:8501 in your browser
-
-**Option B: Command Line**
-```bash
-python invoice_agent.py
-```
-
-## ⚙️ Configuration
-
-Create a `.env` file in the project root:
-
-```env
-# Local LLM Configuration
-OLLAMA_HOST=http://localhost:11434
-MODEL_NAME=llama3.1:8b
-
-# Invoice API Configuration
-INVOICE_API_BASE_URL=http://localhost:8000/invoices
-INVOICE_API_KEY=your-api-key-here
-
-# Database Configuration (SQLite - default)
-DB_FILE=invoice_agent.db
-```
-
-## 🧪 Testing with Mock API
-
-We provide a complete mock API server for testing:
-
-1. **Start the mock server**
-```bash
-python mock_api_server.py
-```
-
-2. **Update .env**
-```env
-INVOICE_API_BASE_URL=http://localhost:5000/invoices
-INVOICE_API_KEY=test-key
-```
-
-3. **Test with sample invoices**
-- Invoice 3479 - Paid ($15,000)
-- Invoice 3481 - Overdue (£22,000)
-- Invoice 3485 - Very overdue ($7,500)
-- And 7 more test invoices
 
 ## 📚 Usage Examples
 
@@ -160,11 +110,17 @@ print(response.content)
 You: "Show me invoice 3479"
 Agent: [Displays invoice details]
 
+<kbd>![Alt text](invoicedetails.jpg)<kbd>
+
 You: "What's its status?"
 Agent: [Remembers 3479, checks status]
 
+<kbd>![Alt text](invoicestatus.jpg)<kbd>
+
 You: "Download it"
 Agent: [Downloads PDF for invoice 3479]
+
+<kbd>![Alt text](invoicedownload.jpg)<kbd>
 ```
 
 ## 🏗️ Architecture
@@ -207,35 +163,37 @@ INVOICES_DIR = Path("./invoices")
 
 @app.get("/invoices/{invoice_no}/pdf")
 async def download_invoice_pdf(invoice_no: str):
-    file_path = INVOICES_DIR / f"invoice_{invoice_no}.pdf"
-    
+    file_path = INVOICES_DIR / f"{invoice_no}.pdf"
+
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="Invoice not found")
-    
+
     return FileResponse(
         path=file_path,
         media_type="application/pdf",
-        filename=f"invoice_{invoice_no}.pdf"
+        filename=f"{invoice_no}.pdf"
     )
 ```
 
 Run your FastAPI server:
+
 ```bash
-uvicorn main:app --reload
+uvicorn --port=8080 api:app --reload
 ```
 
 ## 🎯 Supported Models
 
 Choose based on your hardware:
 
-| Model | RAM Required | Speed | Quality | Best For |
-|-------|--------------|-------|---------|----------|
-| llama3.1:8b | 8GB | ⚡⚡⚡ | ⭐⭐⭐ | General use (recommended) |
-| mistral:7b | 8GB | ⚡⚡⚡⚡ | ⭐⭐⭐ | Speed priority |
-| qwen2.5:14b | 16GB | ⚡⚡ | ⭐⭐⭐⭐ | Best balance |
-| llama3.1:70b | 32GB+ | ⚡ | ⭐⭐⭐⭐⭐ | Maximum quality |
+| Model        | RAM Required | Speed    | Quality    | Best For                  |
+| ------------ | ------------ | -------- | ---------- | ------------------------- |
+| llama3.1:8b  | 8GB          | ⚡⚡⚡   | ⭐⭐⭐     | General use (recommended) |
+| mistral:7b   | 8GB          | ⚡⚡⚡⚡ | ⭐⭐⭐     | Speed priority            |
+| qwen2.5:14b  | 16GB         | ⚡⚡     | ⭐⭐⭐⭐   | Best balance              |
+| llama3.1:70b | 32GB+        | ⚡       | ⭐⭐⭐⭐⭐ | Maximum quality           |
 
 Change model in `.env`:
+
 ```env
 MODEL_NAME=qwen2.5:14b
 ```
@@ -243,31 +201,19 @@ MODEL_NAME=qwen2.5:14b
 ## 📦 Project Structure
 
 ```
-ai-invoice-agent/
-├── invoice_agent.py          # CLI version
-├── streamlit_app.py          # Web UI version
-├── mock_api_server.py        # Test API server
-├── fastapi_implementation.py # FastAPI PDF endpoint
+documentinvoice/
+├── agent.py          # agent configuration
+├── main.py          # Web UI version
+├── api.py           # FastAPI
 ├── requirements.txt          # Python dependencies
-├── .env.example             # Configuration template
+├── tools.py             # Agent functions
 ├── README.md                # This file
-├── test_data/
-│   └── invoices.json        # Sample invoice data
-└── invoices/                # PDF storage directory
+├── test_invoice_data.json   # Sample invoice data
+├── utility.py              # ollama running status
+└── invoicespdf/              # PDF storage directory
 ```
 
 ## 🛠️ Development
-
-### Running Tests
-
-```bash
-# Test Ollama connection
-python -c "from invoice_agent import check_ollama_status; check_ollama_status()"
-
-# Test with mock data
-python mock_api_server.py  # In one terminal
-python invoice_agent.py     # In another terminal
-```
 
 ### Adding New Tools
 
@@ -286,15 +232,6 @@ agent = Agent(
 )
 ```
 
-## 🔒 Security Features
-
-- ✅ Input validation for invoice numbers
-- ✅ Directory traversal prevention
-- ✅ API key authentication support
-- ✅ Local data processing (no cloud)
-- ✅ Configurable CORS policies
-- ✅ Rate limiting ready
-
 ## 💡 Use Cases
 
 - **Accounting Teams** - Quick invoice lookups without navigating complex systems
@@ -302,17 +239,6 @@ agent = Agent(
 - **Finance Departments** - Bulk invoice status checks
 - **Small Businesses** - Affordable invoice management
 - **Developers** - API testing and integration
-
-## 🚧 Roadmap
-
-- [ ] Multi-language support
-- [ ] Bulk operations (process multiple invoices)
-- [ ] Email notifications for overdue invoices
-- [ ] Invoice analytics and reporting
-- [ ] Integration with accounting software (QuickBooks, Xero)
-- [ ] Mobile app support
-- [ ] Voice interface
-- [ ] Advanced search and filtering
 
 ## 🤝 Contributing
 
@@ -326,7 +252,7 @@ Contributions are welcome! Please follow these steps:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Open for all
 
 ## 🙏 Acknowledgments
 
@@ -343,4 +269,4 @@ If you find this project useful, please consider giving it a star! ⭐
 
 **Made with ❤️ by Vinay Gandhi**
 
-*Powered by Local LLMs - No API costs, Full privacy*
+_Powered by Local LLMs - No API costs, Full privacy_
