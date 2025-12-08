@@ -77,7 +77,7 @@ cp .env.example .env
 **Streamlit Web UI (Recommended)**
 
 ```bash
-streamlit run streamlit_app.py
+streamlit run main.py
 ```
 
 ## 📚 Usage Examples
